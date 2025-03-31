@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | D&D Developments LLC</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('1.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 14px 0;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #28a745;
+    }
+
+    .header, .section, .container {
+      padding-top: 120px;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.95);
+      color: #333;
+      margin: 40px auto;
+      max-width: 900px;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 25px;
+    }
+
+    .section p {
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    input, textarea, button {
+      font-size: 18px;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    label {
+      font-size: 14px;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 25px;
+      }
+
+      .section h2 {
+        font-size: 26px;
+      }
+
+      input, textarea, button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+
+  <div class="section">
+    <h2>Have Questions For Us?</h2>
+    <p>Excellent! We would love talking with you and see how we can help.</p>
+
+   <div style="text-align:center;">
+  <p>📞 <strong>Phone:</strong> 216-706-9367</p>
+  <p>📧 <strong>Email:</strong> info@dddevelopments.com</p>
+  <p>📍 <strong>Address:</strong> 610 W 42nd St, New York, NY 10036, USA</p>
+</div>
+
+    <form id="contactForm">
+      <input type="text" name="first_name" placeholder="First Name (Optional)">
+      <input type="text" name="last_name" placeholder="Last Name (Optional)">
+      <input type="email" name="email" placeholder="Email (Optional)">
+      <textarea name="message" placeholder="Message (Optional)"></textarea>
+
+      <label>
+        <input type="checkbox" id="consentCheckbox" required>
+        By submitting this form and signing up for texts, you consent to receive marketing text messages from D&D Developments LLC at the number provided. Consent is not a condition of purchase. Msg & Data rates may apply. Unsubscribe at any time by replying STOP.
+      </label>
+
+      <button type="submit">Send</button>
+      <p id="form-message" style="display:none; margin-top: 10px;"></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const checkbox = document.getElementById("consentCheckbox");
+      const msg = document.getElementById("form-message");
+
+      if (!checkbox.checked) {
+        msg.style.display = "block";
+        msg.style.color = "red";
+        msg.innerText = "You must agree to receive text messages to submit.";
+        return;
+      }
+
+      msg.style.display = "block";
+      msg.style.color = "green";
+      msg.innerText = "Thanks! Your message was sent.";
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
