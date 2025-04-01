@@ -320,5 +320,17 @@
     View Privacy Policy
   </a>
 </div>
+  <script>
+  // מאפסים התנהגות של פתיחה בטאב חדש
+  document.querySelectorAll('a[href]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      if (e.ctrlKey || e.metaKey || e.button === 1) {
+        e.preventDefault();
+        window.location.href = this.getAttribute('href');
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
